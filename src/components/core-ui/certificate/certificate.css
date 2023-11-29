@@ -1,0 +1,93 @@
+
+
+.certificate-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+}
+
+.certificate-header h1 {
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+  font-family: var(--primaryFont);
+}
+
+.cert-slider {
+  overflow: hidden;
+
+  .slick-list {
+    overflow: hidden; /* Hide any overflow from extra cards */
+  }
+
+  .slick-slide {
+    position: relative; /* Added to make the position relative */
+    width: 100%;
+    margin: 10px;
+    box-sizing: border-box;
+    height: 320px;
+    border-radius: 8px;
+    box-shadow: rgb(252, 59, 0) 0px 0px 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .slick-slide img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .slick-prev,
+  .slick-next {
+    background-color: #F56539;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 1; 
+
+    span {
+      visibility: hidden; 
+    }
+
+    &:hover {
+      span {
+        visibility: hidden; /* Hide the text on hover as well */
+      }
+    }
+  }
+
+  .slick-prev {
+    left: 10px;
+  }
+
+  .slick-next {
+    right: 10px;
+  }
+
+  .slick-prev span,
+  .slick-next span {
+    display: none; /* Additional hiding for certain cases */
+  }
+
+  .slick-prev::before {
+    content: '←'; /* Unicode left arrow character */
+  }
+
+  .slick-next::before {
+    content: '→'; /* Unicode right arrow character */
+  }
+
+  /* Adjust the width and margin as needed for one card at a time on smaller screens */
+  @media (min-width: 720px) {
+    .slick-slide {
+      width: calc(33.3333% - 20px);
+      max-width: none; /* Remove the max-width on smaller screens */
+    }
+  }
+}
